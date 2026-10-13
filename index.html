@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Smart Tailoring</title>
+  <meta name="theme-color" content="#143b2f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f5a47'/%3E%3Cpath d='M6 22h20M9 22v-4M13 22v-2M17 22v-4M21 22v-2M25 22v-4' stroke='%23f2c230' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sign in -->
+  <div class="login" id="login">
+    <section class="login-hero">
+      <a class="brand" href="#" aria-label="Smart Tailoring">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 17h18M6 17v-4M10 17v-2M14 17v-4M18 17v-2"/></svg></span>
+        Smart Tailoring
+      </a>
+      <div>
+        <h1>Every garment starts with a number.</h1>
+        <p>Keep measurements, delivery dates and bills for every customer in one place, and never lose a fitting again.</p>
+      </div>
+      <div class="hero-tape-wrap" aria-hidden="true"><div class="hero-tape" id="hero-tape"></div></div>
+    </section>
+    <section class="login-panel">
+      <div class="login-card">
+        <div>
+          <h2>Sign in</h2>
+          <p class="muted" style="margin-top:4px">Open the order book for today.</p>
+        </div>
+        <form id="login-form" novalidate>
+          <div class="field"><label for="lu">Username</label><input id="lu" class="input" autocomplete="username" autocapitalize="none" spellcheck="false" required></div>
+          <div class="field"><label for="lp">Password</label><input id="lp" class="input" type="password" autocomplete="current-password" required></div>
+          <p class="form-error" id="login-error" role="alert"></p>
+          <button class="btn btn-primary" id="login-btn" type="submit">Sign in</button>
+        </form>
+        <p class="login-note" id="mode-note">Checking connection…</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- App -->
+  <div class="app" id="app" hidden>
+    <aside class="rail">
+      <a class="brand" href="#/dashboard">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 17h18M6 17v-4M10 17v-2M14 17v-4M18 17v-2"/></svg></span>
+        Smart Tailoring
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#/dashboard" data-nav="dashboard"><i data-ic="home"></i>Dashboard</a>
+        <a href="#/new" data-nav="new"><i data-ic="plus"></i>New order</a>
+        <a href="#/orders" data-nav="orders"><i data-ic="list"></i>Orders<span class="badge" id="badge-overdue" hidden>0</span></a>
+        <a href="#/customers" data-nav="customers"><i data-ic="users"></i>Customers</a>
+      </nav>
+      <div class="rail-foot">
+        <div class="who"><span class="avatar" id="who-av">A</span><div><b id="who-name">Admin</b><small>Signed in</small></div></div>
+        <button class="rail-btn" id="signout"><i data-ic="logout"></i>Sign out</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="title">Dashboard</h1>
+          <p class="muted" id="subtitle"></p>
+        </div>
+        <div class="top-actions">
+          <button class="btn btn-ghost btn-icon" data-theme-toggle aria-label="Switch between light and dark"></button>
+          <a class="btn btn-tape" id="top-new" href="#/new"><i data-ic="plus"></i><span>New order</span></a>
+        </div>
+      </header>
+      <div class="tape tape-top" aria-hidden="true"></div>
+      <div class="view" id="view"></div>
+    </main>
+
+    <nav class="tabbar" aria-label="Main">
+      <a href="#/dashboard" data-nav="dashboard"><i data-ic="home"></i><span>Home</span></a>
+      <a href="#/orders" data-nav="orders"><i data-ic="list"></i><span>Orders</span></a>
+      <a href="#/new" class="tab-plus" data-nav="new" aria-label="New order"><i data-ic="plus"></i></a>
+      <a href="#/customers" data-nav="customers"><i data-ic="users"></i><span>Customers</span></a>
+      <button id="signout-m"><i data-ic="logout"></i><span>Sign out</span></button>
+    </nav>
+  </div>
+
+  <div id="layer-root"></div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
