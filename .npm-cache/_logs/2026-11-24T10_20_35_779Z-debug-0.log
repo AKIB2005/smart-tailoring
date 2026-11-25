@@ -1,0 +1,49 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.20.0
+2 info using node@v26.12.1
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\BEAST\Desktop\smart-tailoring-main\.npmrc
+5 silly config load:file:C:\Users\BEAST\.npmrc
+6 silly config load:file:C:\Users\BEAST\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm uninstall react-hook-form @hookform/resolvers lucide-react
+8 verbose argv "uninstall" "react-hook-form" "@hookform/resolvers" "lucide-react" "--no-audit" "--no-fund" "--cache" ".npm-cache"
+9 verbose logfile logs-max:10 dir:C:\Users\BEAST\Desktop\smart-tailoring-main\.npm-cache\_logs\2026-11-24T10_20_35_779Z-
+10 verbose logfile C:\Users\BEAST\Desktop\smart-tailoring-main\.npm-cache\_logs\2026-11-24T10_20_35_779Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4395630592 maxSize:1098907648 maxEntrySize:549453824
+13 silly idealTree buildDeps
+14 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+15 silly reify mark retired [
+15 silly reify   'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\lucide-react'
+15 silly reify ]
+16 silly reify mark retired [
+16 silly reify   'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\react-hook-form'
+16 silly reify ]
+17 silly reify mark retired [
+17 silly reify   'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\@hookform\\resolvers'
+17 silly reify ]
+18 silly reify mark retired [
+18 silly reify   'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\@standard-schema\\utils'
+18 silly reify ]
+19 silly reify moves {
+19 silly reify   'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\lucide-react': 'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\.lucide-react-P7mvXorc',
+19 silly reify   'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\react-hook-form': 'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\.react-hook-form-9q39YdN9',
+19 silly reify   'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\@hookform\\resolvers': 'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\@hookform\\.resolvers-lqPdbZHq',
+19 silly reify   'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\@standard-schema\\utils': 'C:\\Users\\BEAST\\Desktop\\smart-tailoring-main\\node_modules\\@standard-schema\\.utils-LsEErdTP'
+19 silly reify }
+20 http fetch GET 200 https://registry.npmjs.org/npm 370ms
+21 silly REMOVE node_modules/@standard-schema/utils
+22 silly REMOVE node_modules/@hookform/resolvers
+23 silly REMOVE node_modules/react-hook-form
+24 silly REMOVE node_modules/lucide-react
+25 verbose cwd C:\Users\BEAST\Desktop\smart-tailoring-main
+26 verbose os Windows_NT 10.0.26300
+27 verbose node v26.12.1
+28 verbose npm  v11.20.0
+29 notice
+29 notice New major version of npm available! 11.20.0 -> 12.2.3
+29 notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+29 notice To update run: npm install -g npm@12.2.3
+29 notice  { force: true, Symbol(proc-log.meta): true }
+30 verbose exit 0
+31 info ok

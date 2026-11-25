@@ -1,0 +1,13 @@
+import { Dialog } from '../../app/Dialog';
+import { useState, type FormEvent } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { customerSchema } from '../../domain/validation';
+import { OrderList } from '../orders/OrderList';
+import { day, id, money, status, visible, wa, type Props } from '../../app/shared';
+export function CustomerDetails({ data, commit }: Props) {
+  const { customerId } = useParams(); const c = data.customers.find(x => x.id === customerId); const [editing, setEditing] = useState(false); const [name, setName] = useState(c?.name ?? ''); const [phone, setPhone] = useState(c?.phone ?? ''); const [err, setErr] = useState('');
+  if (!c) return <p>Customer not found. <Link className="back-link" to="/customers">Back</Link></p>;
+  const orders = data.orders.filter(o => o.customerId === c.id && visible(o)).sort((a,b) => b.orderDate.localeCompare(a.orderDate));
+  async function save(e: FormEvent) { e.preventDefault(); const result = customerSchema.safeParse({ name, phone }); if (!result.success) { setErr(result.error.issues[0].message); return; } if (await commit({ ...data, customers: data.customers.map(x => x.id === c!.id ? { ...x, ...result.data } : x) })) setEditing(false); }
+  return <><Link to="/customers">← Customers</Link><div className="heading"><div><span className="eyebrow">THE CUSTOMER JOURNAL</span><h1>{c.name}</h1><p>{c.phone}</p></div><button onClick={() => setEditing(!editing)}>Edit customer</button></div>{editing && <Dialog title="Customer details" drawer onClose={() => setEditing(false)}><form className="card formgrid" onSubmit={save}><label>Name<input value={name} onChange={e => setName(e.target.value)} /></label><label>Phone<input value={phone} onChange={e => setPhone(e.target.value)} /></label><button className="primary">Save changes</button>{err && <p role="alert">{err}</p>}</form></Dialog>}<p><Link className="primary" to={`/new?customer=${c.id}`}>New order</Link> <a href={wa(c.phone, `Hello ${c.name}, this is Smart Tailoring.`)} target="_blank" rel="noreferrer">WhatsApp</a></p><section className="card"><span className="eyebrow">A RECORD OF EVERY FIT</span><h2>Measurement history</h2>{orders.flatMap(o => o.items.map(i => <div className="history" key={i.id}><strong>{o.orderDate} · {i.garment}</strong><div className="measurement-chips">{Object.entries(i.measurements).map(([k,v]) => <span className="measurement-chip" key={k}>{k}<strong>{v} in</strong></span>)}</div></div>))}{!orders.length && <p>No measurements yet.</p>}</section><section className="card"><h2>Orders</h2><OrderList orders={orders} data={data} /></section></>;
+}
